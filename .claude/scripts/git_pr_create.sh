@@ -24,11 +24,14 @@ main() {
     #-----------------------------
     # 2. コミットが必要か判定
     #-----------------------------
-    git add -A
-    if git diff --cached --quiet; then
+    # 未コミットの変更をチェック
+    if git diff --quiet && git diff --cached --quiet && ! git ls-files --others --exclude-standard | grep -q .; then
         echo "[git_pr_create] No changes to commit. Skipping PR creation."
         return 0
     fi
+    
+    # 変更をステージング
+    git add -A
 
     #-----------------------------
     # 3. コミット
