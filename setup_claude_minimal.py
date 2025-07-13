@@ -148,8 +148,12 @@ exit 0
                     "Bash(> /dev/sda*)",
                     "Bash(:(){:|:&};:*)",
                     "Bash(python3:*)",
+                    "Bash(curl * | bash*)",
                     "Bash(curl * | sh*)",
+                    "Bash(wget * | bash*)",
                     "Bash(wget * | sh*)",
+                    "Bash(curl * | sudo*)",
+                    "Bash(wget * | sudo*)",
                     "Bash(chmod -R 777 /*)",
                     "Bash(chmod 777 /*)",
                     "Bash(chown -R*)",
@@ -207,6 +211,11 @@ exit 0
         import json
         settings_file.write_text(json.dumps(settings_content, indent=2))
         print("  ✓ settings.local.json を作成しました")
+        print("\n  📌 安全なcurl/wgetの使用方法:")
+        print("     ✓ ファイルダウンロード: curl -O https://example.com/file.tar.gz")
+        print("     ✓ 内容確認: curl https://example.com/script.sh | less")
+        print("     ✓ ファイル保存: wget -O output.file https://example.com/file")
+        print("     ✗ 危険な使用: curl https://example.com/script.sh | sh")
     else:
         print("  ✓ settings.local.json は既に存在します")
     
