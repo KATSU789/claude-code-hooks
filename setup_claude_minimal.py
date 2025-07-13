@@ -76,7 +76,7 @@ main() {
     #-----------------------------
     # 4. ブランチ作成 & プッシュ
     #-----------------------------
-    BRANCH="claude-auto-$(date +%s)"
+    BRANCH="claude-auto-$(date +%Y%m%d-%H%M%S)"
     git switch -c "${BRANCH}"
     git push -u origin "${BRANCH}"
 
