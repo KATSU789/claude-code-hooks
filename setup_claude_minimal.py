@@ -134,11 +134,38 @@ exit 0
     settings_file = claude_dir / "settings.local.json"
     if not settings_file.exists():
         settings_content = {
+            "permissions": {
+                "allow": [
+                    "Bash(*)"
+                ],
+                "deny": [
+                    "Bash(rm -rf*)",
+                    "Bash(python3:*)"
+                ]
+            },
             "hooks": {
-                "post_bash": ".claude/scripts/ruff_gate_post.sh",
-                "post_edit": ".claude/scripts/ruff_gate_post.sh",
-                "post_multiedit": ".claude/scripts/ruff_gate_post.sh",
-                "post_write": ".claude/scripts/ruff_gate_post.sh"
+                "PostToolUse": [
+                    {
+                        "matcher": "Write|Edit|Update",
+                        "hooks": [
+                            {
+                                "type": "command",
+                                "command": "/bin/bash .claude/scripts/ruff_gate_post.sh"
+                            }
+                        ]
+                    }
+                ],
+                "Stop": [
+                    {
+                        "matcher": "*",
+                        "hooks": [
+                            {
+                                "type": "command",
+                                "command": "/bin/bash .claude/scripts/git_pr_create.sh"
+                            }
+                        ]
+                    }
+                ]
             }
         }
         import json
