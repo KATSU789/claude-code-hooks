@@ -1,8 +1,8 @@
-# AI-TEST Project
+# Claude Code Hookによる、Python自動コードチェックとプルリクエスト
 
 ## セットアップ
 
-### Claude Code 最小セットアップ
+### 最小セットアップ
 
 `setup_claude_minimal.py` を使用してClaude Code環境を自動セットアップできます。
 
@@ -43,3 +43,4 @@ python3 setup_claude_minimal.py
 - **PostToolUse Hook**: ファイル編集時にruffでPythonコードをチェック
 - **Stop Hook**: 会話終了時に変更があれば自動でPR作成
   - ブランチ名形式: `claude-auto-YYYYMMDD-HHMMSS` (例: `claude-auto-20250713-143045`)
+ 
