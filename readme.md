@@ -42,3 +42,4 @@ python3 setup_claude_minimal.py
 
 - **PostToolUse Hook**: ファイル編集時にruffでPythonコードをチェック
 - **Stop Hook**: 会話終了時に変更があれば自動でPR作成
+  - ブランチ名形式: `claude-auto-YYYYMMDD-HHMMSS` (例: `claude-auto-20250713-143045`)
