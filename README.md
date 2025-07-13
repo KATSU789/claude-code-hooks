@@ -57,7 +57,7 @@ python3 setup_claude_minimal.py
 
 このプロジェクトはMITライセンスの下で公開されています。
 
-Copyright (c) 2025 AI-TEST Project
+Copyright (c) 2025 KATSU https://github.com/KATSU789
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
